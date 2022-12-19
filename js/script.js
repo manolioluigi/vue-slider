@@ -47,22 +47,28 @@ createApp({
 
             nextImage(){
                 this.activeImage++;
-                if(this.activeImage>this.slides.lenght - 1){
+                if(this.activeImage>this.slides.length - 1){
                     this.activeImage = 0;
                 }
+                console.log(this.activeImage , this.slides.length)
             },
 
             prevImage(){
                 this.activeImage--;
                 if(this.activeImage < 0){
-                    this.activeImage = this.slides.lenght - 1;
+                    this.activeImage = this.slides.length - 1;
                 }
             },
 
             startAutoplay(){
-                setInterval(() => {
+                this.autoplay = setInterval(() => {
                     this.nextImage();
                 }, 3000)
+            },
+
+            stopAutoplay(){
+                clearInterval(this.autoplay);
+                this.autoplay = null
             }
 
     }
