@@ -39,8 +39,7 @@ createApp({
     },
     
 
-    methods(){
-        return{
+    methods: {
 
             changeImage(index){
                 this.activeImage = index;
@@ -48,7 +47,7 @@ createApp({
 
             nextImage(){
                 this.activeImage++;
-                if(this.activeImage>this.slides.lenght - 1){
+                if(this.activeImage>this.slides.lenght){
                     this.activeImage = 0;
                 }
             },
@@ -66,7 +65,6 @@ createApp({
                 }, 3000)
             }
 
-        }
     }
     
 
