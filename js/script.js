@@ -31,20 +31,40 @@ createApp({
         }
     },
 
-    /*
+    
     created(){
+        
         this.startAutoplay();
+        
     },
-    */
+    
 
     methods(){
         return{
 
             changeImage(index){
                 this.activeImage = index;
-            }
+            },
 
-            
+            nextImage(){
+                this.activeImage++;
+                if(this.activeImage>this.slides.lenght - 1){
+                    this.activeImage = 0;
+                }
+            },
+
+            prevImage(){
+                this.activeImage--;
+                if(this.activeImage < 0){
+                    this.activeImage = this.slides.lenght - 1;
+                }
+            },
+
+            startAutoplay(){
+                setInterval(() => {
+                    this.nextImage();
+                }, 3000)
+            }
 
         }
     }
